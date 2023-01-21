@@ -59,7 +59,7 @@ export default class App extends Component{
   }
   async changeProvider(type,provider){
     let {apis} = this.state;
-    await apis({api:'provider_change',parameter:{type,provider}});
+    await apis({api:'change_provider',parameter:{type,provider}});
     let providers = this.state[type + '_providers'];
     providers = providers.map((o)=>{
       if(o.id === provider.id){return provider}

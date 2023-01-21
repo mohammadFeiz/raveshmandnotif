@@ -192,10 +192,11 @@ export default function apis({getState}){
         
               ]
         },
-        async change_proivider({type,provider}){
+        async change_provider({type,provider}){
             //type => sms | email | push
             //provider => changed provider object
             return true
         }
+        
     }
 }
