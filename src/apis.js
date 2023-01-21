@@ -41,6 +41,9 @@ export default function apis({getState}){
                 otp:'3'
               }
         },
+        async sms_change(sms_config){
+            return true
+        },
         async email_config(){
             return {
                 khadamati:'1',
@@ -48,8 +51,14 @@ export default function apis({getState}){
                 poshtibani:'3'
               }
         },
+        async email_change(email_config){
+            return true
+        },
         async push_config(){
             return '3'
+        },
+        async push_change(push_config){
+            return true
         },
         async sms_providers(){
             return [
@@ -182,6 +191,11 @@ export default function apis({getState}){
                 }
         
               ]
+        },
+        async change_proivider({type,provider}){
+            //type => sms | email | push
+            //provider => changed provider object
+            return true
         }
     }
 }

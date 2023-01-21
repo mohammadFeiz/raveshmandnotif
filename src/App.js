@@ -42,21 +42,30 @@ export default class App extends Component{
     this.setState({sms_services,email_services,push_services,sms,email,push,sms_providers,email_providers,push_providers})
     
   }
-  changeSms(sms){
+  async changeSms(sms){
+    let {apis} = this.state;
+    await apis({api:'sms_change',parameter:sms});
     this.setState({sms})
   }
-  changeEmail(email){
+  async changeEmail(email){
+    let {apis} = this.state;
+    await apis({api:'email_change',parameter:email});
     this.setState({email})
   }
-  changePush(push){
+  async changePush(push){
+    let {apis} = this.state;
+    await apis({api:'push_change',parameter:push});
     this.setState({push})
   }
-  changeProvider(type,provider){
+  async changeProvider(type,provider){
+    let {apis} = this.state;
+    await apis({api:'provider_change',parameter:{type,provider}});
     let providers = this.state[type + '_providers'];
     providers = providers.map((o)=>{
       if(o.id === provider.id){return provider}
       return o
     })
+
     this.setState({[type+'_providers']:providers});
   }
   addProvider(type,provider){
