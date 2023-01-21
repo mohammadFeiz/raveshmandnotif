@@ -25,6 +25,7 @@ export default class Setting extends Component{
                         {text:'Push Notification',value:'push'},
                         {text:'Profile',value:'profile'}, 
                     ]}
+                    onChange={(tab)=>this.setState({tab})}
                 />
             )
         }
